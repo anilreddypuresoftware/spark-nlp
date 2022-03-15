@@ -29,5 +29,6 @@ jobs:
         pip install pyspark==3.2.0 numpy
         brew install sbt
         sbt clean
+        pip install run-tests
         python3.8 -m run-tests
         
