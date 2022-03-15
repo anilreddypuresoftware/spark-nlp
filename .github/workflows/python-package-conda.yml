@@ -29,20 +29,6 @@ jobs:
         pip install pyspark==3.2.0 numpy
         brew install sbt
         sbt clean
-    - name: Build Spark NLP on Apache Spark 3.2.0
-      run: |
-          sbt compile
-          sbt -mem 4096 -Dis_spark32=true assemblyAndCopy
-    - name: Test Spark NLP in Scala - Apache Spark 3.2.x
-      run: |
-          sbt -mem 4096 -Dis_spark32=true coverage test
-    - name: Upload coverage data to Coveralls
-      run: sbt coverageReport coveralls
-      env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COVERALLS_FLAG_NAME: Apache Spark 3.2.x - Scala 2.12
-    - name: Test Spark NLP in Python - Apache Spark 3.2.x
-      run: |
-          cd python
-          python3.7 -m run-tests    
+        cd python
+        python3.7 -m run-tests    
   
