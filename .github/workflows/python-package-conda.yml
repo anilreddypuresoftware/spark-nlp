@@ -29,7 +29,5 @@ jobs:
         pip install pyspark==3.2.0 numpy
         brew install sbt
         sbt clean
-        sbt compile
-        sbt -mem 4096 -Dis_spark32=true assemblyAndCopy
         python3.8 -m run-tests
         
