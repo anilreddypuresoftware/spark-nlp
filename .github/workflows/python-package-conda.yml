@@ -25,9 +25,9 @@ jobs:
     - name: Test with pytest
       run: |
         source activate testenv
-        conda install python3.8 -m pip install pyspark==2.3.4 numpy
+        python3.8 -m pip install pyspark==2.3.4 numpy
         cd python
         python3.8 -m run-tests
-        conda deactivate
+        deactivate
         
   
