@@ -30,7 +30,7 @@ jobs:
         python setup.py install
         
         python -m pip install --upgrade pip
-        pip install pyspark==3.2.0 numpy
+        
         python3.8 -m run-tests  
   armv64_job:
       name: Build and Test for arm64
@@ -50,8 +50,7 @@ jobs:
               cd python && \
               python setup.py install && \
               python -m pip install --upgrade pip && \
-              pip install pyspark==3.2.0 numpy && \
-              
+                            
               pip install pyspark==3.2.1 && \
             
               python3.8 -m run-tests && \
