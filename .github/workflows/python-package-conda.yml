@@ -28,7 +28,7 @@ jobs:
         cd python
         python3.8 -m pip install pyspark==2.3.4 numpy
         pip install --upgrade pyspark
-        python3.8 -m pytest
+        python3.8 -m run-tests
         conda deactivate
   armv64_job:
       name: Build and Test for arm64
@@ -52,11 +52,9 @@ jobs:
               conda create -q -y --name testenv python=3.8 cython numpy pytest psutil pip && \
               source activate testenv && \
               source py38-venv/bin/activate && \
-              cd python && \
-            
-              python3.8 -m pip install pyspark==2.3.4 numpy && \
-              
+              python3.8 -m pip install pyspark==2.3.4 numpy
               pip install --upgrade pyspark && \
-              python3.8 -m pytest && \
+              cd python && \
+              python3.8 -m run-tests && \
               deactivate'      
   
