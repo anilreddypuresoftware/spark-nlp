@@ -55,7 +55,7 @@ jobs:
               cd python && \
             
               python3.8 -m pip install pyspark==2.3.4 numpy && \
-              pip install pyspark && \
+              
               pip install --upgrade pyspark && \
               python3.8 -m run-tests && \
               deactivate'      
