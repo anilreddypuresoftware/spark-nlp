@@ -63,15 +63,15 @@ jobs:
       - name: Set up QEMU
         id: qemu
         uses: docker/setup-qemu-action@v1
-      #- name: Set up JDK 8
-      #  uses: actions/setup-java@v1
-      #  with:
-      #    java-version: 1.8
-      #- name: Install Python 3.7
-      #  uses: actions/setup-python@v2
-      #  with:
-      #    python-version: 3.7.7
-      #    architecture: arm64   
+      - name: Set up JDK 8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Install Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7.7
+          architecture: arm64   
       - name: Install and Run tests
         run: |
           docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
@@ -99,6 +99,7 @@ jobs:
             ls && \
             python3.7 -m pip install pyspark numpy && \
             pip install py4j && \
+            yum -y install py4j-java && \
             rm -f /etc/yum.repos.d/bintray-rpm.repo && \
             curl -L https://www.scala-sbt.org/sbt-rpm.repo > sbt-rpm.repo && \
             mv sbt-rpm.repo /etc/yum.repos.d/ && \
