@@ -71,7 +71,7 @@ jobs:
         #uses: actions/setup-python@v2
         #with:
         #  python-version: 3.7.7
-         # architecture: arm64   
+        # architecture: arm64   
       - name: Install and Run tests
         run: |
           docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
