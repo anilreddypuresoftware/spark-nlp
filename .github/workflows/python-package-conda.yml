@@ -110,7 +110,7 @@ jobs:
             sbt compile && \
         
             sbt -mem 4096 -Dis_spark23=true assemblyAndCopy && \
-            sbt -mem 4096 -Dis_spark24=true test && \
+            
             pwd && \
             ls && \
             python --version && \
